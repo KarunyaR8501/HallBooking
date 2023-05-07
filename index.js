@@ -1,4 +1,5 @@
 const express = require("express")
+require('dotenv').config()
 const app = express()
 
 const bodyparser = require("body-parser")
@@ -6,8 +7,8 @@ app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}))
 
 
-const port = 5000;
-  app.listen(port,'localhost',()=>{
+const port = process.env.PORT || 5000;
+  app.listen(port,()=>{
     console.log("serve started")
   })
 
